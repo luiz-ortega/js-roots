@@ -151,6 +151,18 @@ for (let i = 0; i < users.length; i++) {
 
 console.log(femaleMaleQuantity);
 
+const femaleMaleQuantityReduce = users.reduce(
+  (acc, user) => {
+    return {
+      ...acc,
+      [user.gender]: acc[user.gender] + 1,
+    };
+  },
+  { female: 0, male: 0 }
+);
+
+console.log(femaleMaleQuantityReduce);
+
 /**
  * 2) Tags por state
  *
