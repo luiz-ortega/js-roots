@@ -1,4 +1,4 @@
-export default users = [
+const users = [
   {
     name: "Chrystal Washington",
     gender: "female",
@@ -136,6 +136,20 @@ export default users = [
  *  }
  *
  */
+
+// com for
+
+const femaleMaleQuantity = {};
+
+for (let i = 0; i < users.length; i++) {
+  if (!femaleMaleQuantity[users[i].gender]) {
+    femaleMaleQuantity[users[i].gender] = 0;
+  }
+
+  femaleMaleQuantity[users[i].gender] += 1;
+}
+
+console.log(femaleMaleQuantity);
 
 /**
  * 2) Tags por state
