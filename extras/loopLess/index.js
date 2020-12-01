@@ -3,7 +3,7 @@ const users = [
     name: "Chrystal Washington",
     gender: "female",
     age: 23,
-    state: "Northern Mariana Islands",
+    state: "Northern_Mariana_Islands",
     tags: ["voluptate", "adipisicing"],
   },
   {
@@ -31,14 +31,14 @@ const users = [
     name: "Jennie Gardner",
     gender: "female",
     age: 39,
-    state: "North Carolina",
+    state: "North_Carolina",
     tags: ["ullamco", "excepteur", "laboris", "in", "ipsum", "sit"],
   },
   {
-    name: "Fitzgerald Olson",
+    name: "Fitzgerald_Olson",
     gender: "male",
     age: 25,
-    state: "South Dakota",
+    state: "South_Dakota",
     tags: ["fugiat", "ex", "consequat", "pariatur"],
   },
   {
@@ -59,7 +59,7 @@ const users = [
     name: "Porter Mendez",
     gender: "male",
     age: 35,
-    state: "Federated States Of Micronesia",
+    state: "Federated_States_Of_Micronesia",
     tags: ["officia", "magna", "sunt", "aliquip", "dolor", "magna", "proident"],
   },
   {
@@ -87,14 +87,14 @@ const users = [
     name: "Louella Gates",
     gender: "female",
     age: 20,
-    state: "Marshall Islands",
+    state: "Marshall_Islands",
     tags: ["labore", "mollit", "labore", "cillum", "cillum", "nulla"],
   },
   {
     name: "Angelina Rose",
     gender: "female",
     age: 37,
-    state: "West Virginia",
+    state: "West_Virginia",
     tags: ["nulla", "cupidatat"],
   },
   {
@@ -173,6 +173,18 @@ console.log(femaleMaleQuantityReduce);
  *  }
  *
  */
+
+const tagByState = {};
+
+for (let i = 0; i < users.length; i++) {
+  if (!tagByState[users[i].state]) {
+    tagByState[users[i].state] = [];
+  }
+
+  tagByState[users[i].state] = tagByState[users[i].state].concat(users[i].tags);
+}
+
+console.log(tagByState);
 
 /**
  * 3) Tags por quantidade de pessoas
