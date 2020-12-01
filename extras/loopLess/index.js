@@ -186,6 +186,15 @@ for (let i = 0; i < users.length; i++) {
 
 console.log(tagByState);
 
+const tagByStateReduce = users.reduce((acc, user) => {
+  return {
+    ...acc,
+    [user.state]: [...(acc[user.state] ? acc[user.state] : []), ...user.tags],
+  };
+}, {});
+
+console.log(tagByStateReduce);
+
 /**
  * 3) Tags por quantidade de pessoas
  *
