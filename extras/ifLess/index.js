@@ -59,8 +59,34 @@ function lte(length, field) {
   return field.trim().length <= length;
 }
 
-if (isNotEmpty(name) && gte(3, name) && lte(30, name)) {
-  console.log("valid name 4");
+// if (isNotEmpty(name) && gte(3, name) && lte(30, name)) {
+//   console.log("valid name 4");
+// }
+
+//Every
+
+function gteValidation(length) {
+  return function (field) {
+    return field.length >= length;
+  };
 }
+
+function lteValidation(length) {
+  return function (field) {
+    return field.length <= length;
+  };
+}
+
+function isNotEmptyValidation(field) {
+  return field.trim() !== "";
+}
+
+const validations = {
+  name: [isNotEmptyValidation, gteValidation(3), lteValidation(30)],
+};
+
+const result = validations.name.every((fn) => fn(name));
+
+console.log("validations", result);
 
 // ______________________________
