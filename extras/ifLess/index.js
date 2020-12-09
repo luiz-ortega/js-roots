@@ -55,4 +55,12 @@ if (isNotEmpty(name) && gte(3, name)) {
   console.log("valid name 3");
 }
 
+function lte(length, field) {
+  return field.trim().length <= length;
+}
+
+if (isNotEmpty(name) && gte(3, name) && lte(30, name)) {
+  console.log("valid name 4");
+}
+
 // ______________________________
