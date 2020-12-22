@@ -258,4 +258,16 @@ for (let i = 0; i < users.length; i++) {
   }
 }
 
-console.log(tagsByUser);
+/* console.log(tagsByUser); */
+
+const tagsByUserReduce = users.reduce(
+  (acc, user) => ({
+    ...acc,
+    ...Object.fromEntries(
+      user.tags.map((tag) => [tag, [...(acc[tag] ?? []), user.name]])
+    ),
+  }),
+  {}
+);
+
+console.log(tagsByUserReduce);
