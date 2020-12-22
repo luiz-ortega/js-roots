@@ -149,7 +149,7 @@ for (let i = 0; i < users.length; i++) {
   femaleMaleQuantity[users[i].gender] += 1;
 }
 
-console.log(femaleMaleQuantity);
+/* console.log(femaleMaleQuantity); */
 
 const femaleMaleQuantityReduce = users.reduce(
   (acc, user) => {
@@ -161,7 +161,7 @@ const femaleMaleQuantityReduce = users.reduce(
   { female: 0, male: 0 }
 );
 
-console.log(femaleMaleQuantityReduce);
+/* console.log(femaleMaleQuantityReduce); */
 
 /**
  * 2) Tags por state
@@ -184,7 +184,7 @@ for (let i = 0; i < users.length; i++) {
   tagByState[users[i].state] = tagByState[users[i].state].concat(users[i].tags);
 }
 
-console.log(tagByState);
+/* console.log(tagByState); */
 
 const tagByStateReduce = users.reduce((acc, user) => {
   return {
@@ -193,7 +193,7 @@ const tagByStateReduce = users.reduce((acc, user) => {
   };
 }, {});
 
-console.log(tagByStateReduce);
+/* console.log(tagByStateReduce); */
 
 /**
  * 3) Tags por quantidade de pessoas
@@ -205,6 +205,22 @@ console.log(tagByStateReduce);
  *  }
  *
  */
+
+const personsQuantityPerTag = {};
+
+for (let i = 0; i < users.length; i++) {
+  for (let j = 0; j < users[i].tags.length; j++) {
+    const tag = users[i].tags[j];
+
+    if (!personsQuantityPerTag[tag]) {
+      personsQuantityPerTag[tag] = 0;
+    }
+
+    personsQuantityPerTag[tag] += 1;
+  }
+}
+
+console.log(personsQuantityPerTag);
 
 /**
  * 4) Tags por pessoas
