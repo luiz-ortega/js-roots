@@ -230,7 +230,7 @@ const personsQuantityPerTagReduce = users.reduce(
   {}
 );
 
-console.log(personsQuantityPerTagReduce);
+/* console.log(personsQuantityPerTagReduce); */
 
 /**
  * 4) Tags por pessoas
@@ -242,3 +242,20 @@ console.log(personsQuantityPerTagReduce);
  *  }
  *
  */
+
+const tagsByUser = {};
+
+for (let i = 0; i < users.length; i++) {
+  for (let j = 0; j < users[i].tags.length; j++) {
+    const tag = users[i].tags[j];
+
+    if (!tagsByUser[tag]) {
+      tagsByUser[tag] = [];
+    }
+
+    /*     tagsByUser[tag] = tagsByUser[tag].concat(users[i].name); */
+    tagsByUser[tag] = [...tagsByUser[tag], users[i].name];
+  }
+}
+
+console.log(tagsByUser);
