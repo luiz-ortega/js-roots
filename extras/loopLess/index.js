@@ -220,7 +220,17 @@ for (let i = 0; i < users.length; i++) {
   }
 }
 
-console.log(personsQuantityPerTag);
+/* console.log(personsQuantityPerTag); */
+
+const personsQuantityPerTagReduce = users.reduce(
+  (acc, user) => ({
+    ...acc,
+    ...Object.fromEntries(user.tags.map((tag) => [tag, (acc[tag] ?? 0) + 1])),
+  }),
+  {}
+);
+
+console.log(personsQuantityPerTagReduce);
 
 /**
  * 4) Tags por pessoas
